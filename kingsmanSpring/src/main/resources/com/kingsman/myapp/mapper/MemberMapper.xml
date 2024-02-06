@@ -6,7 +6,9 @@
 	<insert id="MemberJoin" parameterType="com.kingsman.myapp.model.Member">
 		insert into dong values(1,1)
 	</insert>
-	
+	<select id="ProductList" resultType="com.kingsman.myapp.model.Product"> 
+		SELECT * FROM B_PRODUCT
+	</select>
 
 
 
