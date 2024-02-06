@@ -13,7 +13,7 @@ public class PrText {
 
 	private int PR_INDEX;
 	private String PR_QUESTION;
-	private String PR_text;
+	private String PR_TEXT;
 	private String PR_ID;
 	private String PR_PRODUCT;
 	private String PR_NAME;
@@ -22,6 +22,13 @@ public class PrText {
 	private String PR_SEASON;
 	private Date PR_DATE;
 	
-	
+	@Override
+    public String toString() {
+        return "YourPayloadClass{" +
+                "name='" + PR_NAME + '\'' +
+                ", promotionalText='" + PR_TEXT + '\'' +
+                ", product='" + PR_PRODUCT + '\'' +
+                '}';
+    }
 	
 }

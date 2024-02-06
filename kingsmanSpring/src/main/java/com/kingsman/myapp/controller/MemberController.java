@@ -27,7 +27,6 @@ public class MemberController {
 	@PostMapping("/MemberPromotional")
 	@CrossOrigin(origins="http://localhost:3000")
 	public PrText getYourPayloadClass(@RequestBody PrText payload2) {
-
 	    System.out.println("데이터 잘 들어옴 ? " + payload2.toString());
 	    return payload2;
 	}
