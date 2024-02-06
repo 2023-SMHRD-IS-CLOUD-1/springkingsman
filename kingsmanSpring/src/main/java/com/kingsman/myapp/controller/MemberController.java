@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.kingsman.myapp.model.PrText;
+import com.kingsman.myapp.model.User;
 import com.kingsman.myapp.service.MemberService;
 
 import jakarta.annotation.Resource;
@@ -29,6 +30,15 @@ public class MemberController {
 	public PrText getYourPayloadClass(@RequestBody PrText payload2) {
 	    System.out.println("데이터 잘 들어옴 ? " + payload2.toString());
 	    return payload2;
+	}
+	
+	
+	@ResponseBody
+	@PostMapping("/login")
+	@CrossOrigin(origins="http://localhost:3000")
+	public User loginSuccessFail(@RequestBody User loginUserIdPw ) {
+		System.out.println("로그인??" + loginUserIdPw.toString());
+		return loginUserIdPw;
 	}
 	
 	
