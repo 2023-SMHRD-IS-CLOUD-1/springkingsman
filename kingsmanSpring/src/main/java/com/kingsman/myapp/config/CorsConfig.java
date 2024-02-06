@@ -10,12 +10,12 @@ public class CorsConfig implements WebMvcConfigurer {
 
 	// 직면한 문제에 따라서, 메소드를 오버라이딩해서 설정
 	@Override
-	public void addCorsMappings(CorsRegistry registry) {
-		registry.addMapping("/**") // 어떤 URL에 대해서 설정을 할 것인지
-				.allowedOrigins("*") // 어떤 사용자들에게 요청을 허용하는지
-				.allowedMethods("GET", "POST")
-                .allowCredentials(true);				
-	}
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/MemberPromotional")
+                .allowedOrigins("http://localhost:3000")
+                .allowedMethods("GET", "POST")
+                .allowCredentials(true);
+    }
 	
 
 }
