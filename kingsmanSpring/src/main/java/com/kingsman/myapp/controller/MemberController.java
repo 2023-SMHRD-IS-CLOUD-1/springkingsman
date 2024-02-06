@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.kingsman.myapp.model.PrText;
 import com.kingsman.myapp.model.Product;
+import com.kingsman.myapp.model.User;
 import com.kingsman.myapp.service.MemberService;
 import com.smhrd.myapp.model.Member;
 
@@ -58,6 +59,13 @@ public class MemberController {
 		System.out.println("List확인여"+list);
 	
 		return list; 
+	}
+	@ResponseBody
+	@PostMapping("/login")
+	@CrossOrigin(origins="http://localhost:3000")
+	public User loginSuccessFail(@RequestBody User loginUserIdPw ) {
+		System.out.println("로그인??" + loginUserIdPw.toString());
+		return loginUserIdPw;
 	}
 	
 	

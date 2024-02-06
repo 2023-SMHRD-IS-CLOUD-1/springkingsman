@@ -11,7 +11,7 @@ public class CorsConfig implements WebMvcConfigurer {
 	// 직면한 문제에 따라서, 메소드를 오버라이딩해서 설정
 	@Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/MemberPromotional")
+        registry.addMapping("/*")
                 .allowedOrigins("http://localhost:3000")
                 .allowedMethods("GET", "POST")
                 .allowCredentials(true);
@@ -45,6 +45,10 @@ public class CorsConfig implements WebMvcConfigurer {
 	
 	
 	
+	
+
+
+
 	
 
 }
