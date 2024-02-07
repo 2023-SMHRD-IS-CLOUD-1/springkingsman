@@ -27,4 +27,23 @@ public class MemberService {
 		List<User> res = memberMapper.UserList();
 		return res;
 	}
+	
+	
+	public void UserSignUp(User signUpUser) {
+		memberMapper.UserSignUp(signUpUser);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

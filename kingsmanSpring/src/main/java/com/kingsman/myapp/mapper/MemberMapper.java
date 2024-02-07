@@ -18,5 +18,10 @@ public interface MemberMapper {
 
 	public List<User> UserList();
 
-	public List<User> searchUsers(Map<String, String> params);
+
+	
+	public List<User> searchUsers(Map<String, String> searchParams);
+
+	public void UserSignUp(User signUpUser);
+
 }
