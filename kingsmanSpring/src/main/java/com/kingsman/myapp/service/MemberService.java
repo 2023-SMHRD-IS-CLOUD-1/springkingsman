@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.kingsman.myapp.mapper.MemberMapper;
 import com.kingsman.myapp.model.Member;
 import com.kingsman.myapp.model.Product;
+import com.kingsman.myapp.model.User;
 
 @Service
 public class MemberService {
@@ -22,5 +23,8 @@ public class MemberService {
 		List<Product> res = memberMapper.ProductList();
 		return res;
 	}
-
+	public List<User> UserList() {
+		List<User> res = memberMapper.UserList();
+		return res;
+	}
 }
