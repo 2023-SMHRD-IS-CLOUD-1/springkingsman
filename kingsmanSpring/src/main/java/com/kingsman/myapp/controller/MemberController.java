@@ -86,8 +86,16 @@ public class MemberController {
 	@PostMapping("/login")
 	@CrossOrigin(origins="http://localhost:3000")
 	public User loginSuccessFail(@RequestBody User loginUserIdPw ) {
-		System.out.println("로그인??" + loginUserIdPw.toString());
+		System.out.println("로그인??" + loginUserIdPw.getB_ID() + loginUserIdPw.getB_PW());
 		return loginUserIdPw;
+	}
+	
+	@ResponseBody
+	@PostMapping("/signUp")
+	@CrossOrigin(origins="http://localhost:3000")
+	public void signUpUser(@RequestBody User signUpUser) {
+		System.out.println(signUpUser.toString());
+		memberService.UserSignUp(signUpUser);
 	}
 	
 	

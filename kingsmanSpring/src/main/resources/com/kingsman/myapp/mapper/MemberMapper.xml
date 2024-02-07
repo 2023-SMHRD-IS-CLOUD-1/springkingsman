@@ -23,6 +23,10 @@
 	    </if>
 	  </where>
 	</select>
+	<insert id="UserSignUp" parameterType="com.kingsman.myapp.model.Member">
+		INSERT INTO B_USER(B_ID, B_PW, B_NAME, B_DEPS, B_POSITION, B_EMPNO, B_PHONE)
+		VALUES(#{B_ID},#{B_PW},#{B_NAME},#{B_DEPS},#{B_POSITION},#{B_EMPNO},#{B_PHONE})
+	</insert>
 
 	
 
