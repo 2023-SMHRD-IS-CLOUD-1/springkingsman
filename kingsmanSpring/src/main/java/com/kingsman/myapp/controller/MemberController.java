@@ -49,13 +49,12 @@ public class MemberController {
 	@ResponseBody
 	@PostMapping("/UserManagement")
 	@CrossOrigin(origins="http://localhost:3000")
-	 public List<User> searchUsers(String name, String position) {
-        Map<String, String> searchParams = new HashMap<>();
-        searchParams.put("name", name);
-        searchParams.put("position", position);
-        return memberMapper.searchUsers(searchParams); 
-    }
- 
+	 public List<User> searchUsers(@RequestBody Map<String, String> searchData) {
+	    
+	    return memberMapper.searchUsers(searchData); 
+	}
+
+
 	
 	
 
