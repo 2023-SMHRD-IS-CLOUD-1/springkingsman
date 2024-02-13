@@ -11,17 +11,17 @@ import com.kingsman.myapp.model.User;
 @Mapper
 public interface MemberMapper {
 
-	public void MemberJoin(User mem);
+   public void MemberJoin(User mem);
 
-	public List<Product> ProductList();
+   public List<Product> ProductList();
 
-	public List<User> UserList();
+   public List<User> UserList();
 
 
-	
-	public List<User> searchUsers(Map<String, String> searchParams);
+   
+   public List<User> searchUsers(Map<String, String> searchParams);
 
-	public void UserSignUp(User signUpUser);
+   public void UserSignUp(User signUpUser);
 
-	public User LoginCheck(User loginUserIdPw);
+   public User LoginCheck(User loginUserIdPw);
 }
