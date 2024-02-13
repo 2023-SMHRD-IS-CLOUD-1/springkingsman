@@ -5,14 +5,13 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.kingsman.myapp.model.Member;
 import com.kingsman.myapp.model.Product;
 import com.kingsman.myapp.model.User;
 
 @Mapper
 public interface MemberMapper {
 
-	public void MemberJoin(Member mem);
+	public void MemberJoin(User mem);
 
 	public List<Product> ProductList();
 
@@ -24,7 +23,5 @@ public interface MemberMapper {
 
 	public void UserSignUp(User signUpUser);
 
-	public static void LoginCheck(User loginUserIdPw) {
-		
-	}
+	public User LoginCheck(User loginUserIdPw);
 }

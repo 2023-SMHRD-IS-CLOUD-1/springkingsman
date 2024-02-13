@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kingsman.myapp.mapper.MemberMapper;
-import com.kingsman.myapp.model.Member;
 import com.kingsman.myapp.model.Product;
 import com.kingsman.myapp.model.User;
 
@@ -16,7 +15,7 @@ public class MemberService {
 	@Autowired
 	private MemberMapper memberMapper;
 	
-	public void MemberJoin(Member mem) {
+	public void MemberJoin(User mem) {
 		memberMapper.MemberJoin(mem);
 	}
 	public List<Product> ProductList() {
@@ -32,9 +31,9 @@ public class MemberService {
 	public void UserSignUp(User signUpUser) {
 		memberMapper.UserSignUp(signUpUser);
 	}
-	public void LoginCheck(User loginUserIdPw) {
-		MemberMapper.LoginCheck(loginUserIdPw);
-		
+	public User LoginCheck(User loginUserIdPw) {
+		User user = memberMapper.LoginCheck(loginUserIdPw);
+		return user;
 	}
 	
 	

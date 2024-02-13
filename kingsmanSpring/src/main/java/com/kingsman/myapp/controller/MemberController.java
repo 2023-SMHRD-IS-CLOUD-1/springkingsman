@@ -22,81 +22,74 @@ import com.kingsman.myapp.model.User;
 import com.kingsman.myapp.service.MemberService;
 
 import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class MemberController {
-	
-	@Autowired
-    private MemberMapper memberMapper;
 
-	
+	@Autowired
+	private MemberMapper memberMapper;
+
 	@Resource
 	private MemberService memberService;
+
 //	
 	@RequestMapping("/")
 	public String join() {
 		return "MemberJoin";
 	}
-	
+
 	@ResponseBody
 	@PostMapping("/MemberPromotional")
-	@CrossOrigin(origins="http://localhost:3000")
+	@CrossOrigin(origins = "http://localhost:3000")
 	public PrText getYourPayloadClass(@RequestBody PrText payload2) {
-	    System.out.println("데이터 잘 들어옴 ? " + payload2.toString());
-	    return payload2;
+		System.out.println("데이터 잘 들어옴 ? " + payload2.toString());
+		return payload2;
 	}
-	
+
 	@ResponseBody
 	@PostMapping("/UserManagement")
-	@CrossOrigin(origins="http://localhost:3000")
-	 public List<User> searchUsers(@RequestBody Map<String, String> searchData) {
-	    
-	    return memberMapper.searchUsers(searchData); 
+	@CrossOrigin(origins = "http://localhost:3000")
+	public List<User> searchUsers(@RequestBody Map<String, String> searchData) {
+
+		return memberMapper.searchUsers(searchData);
 	}
 
-
-	
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	@RequestMapping("/ProductList")
 	@ResponseBody
 	public List<Product> ProductList() {
 		List<Product> list = memberService.ProductList();
-		System.out.println("List확인여"+list);
-	
-		return list; 
+		System.out.println("List확인여" + list);
+
+		return list;
 	}
+
 	@ResponseBody
-	@PostMapping("/login")
-	@CrossOrigin(origins="http://localhost:3000")
-	public User loginSuccessFail(@RequestBody User loginUserIdPw ) {
-		System.out.println("로그인??" + loginUserIdPw.getB_ID() + loginUserIdPw.getB_PW());
-		memberService.LoginCheck(loginUserIdPw);
-		return loginUserIdPw;
-	}
+	@RequestMapping("/login")
+	@CrossOrigin(origins = "http://localhost:3000")
+	public String loginSuccessFail(@RequestBody User loginUserIdPw, HttpServletRequest request) {
+		System.out.println("로그인??" + loginUserIdPw);
+		// 여기서 로그인 성공하면 값이 row 값이 1로 돌아오고 아니면 0 이니까
+		// 1일때 다시 select구문을 실행해서 모든 값을 가져와서 그걸 return 해준다!! 그 로직을 짜야됨 아닐땐 null 값을
+		// 리턴해줘야됨?
+		User user = memberService.LoginCheck(loginUserIdPw);
+
+		if (user == null) {
+			return null;
+		}
 	
+
+		System.out.println(user);
+		return user.getB_ID();
+	}
+
 	@ResponseBody
 	@PostMapping("/signUp")
-	@CrossOrigin(origins="http://localhost:3000")
+	@CrossOrigin(origins = "http://localhost:3000")
 	public void signUpUser(@RequestBody User signUpUser) {
 		System.out.println(signUpUser.toString());
 		memberService.UserSignUp(signUpUser);
 	}
-	
-	
+
 }
