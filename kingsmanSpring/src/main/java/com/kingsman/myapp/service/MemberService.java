@@ -18,6 +18,7 @@ public class MemberService {
 	public void MemberJoin(User mem) {
 		memberMapper.MemberJoin(mem);
 	}
+
 	public List<Product> ProductList() {
 		List<Product> res = memberMapper.ProductList();
 		return res;

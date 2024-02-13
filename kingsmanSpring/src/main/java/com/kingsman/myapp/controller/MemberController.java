@@ -1,8 +1,5 @@
 package com.kingsman.myapp.controller;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
 import java.util.List;
 import java.util.Map;
 
@@ -12,7 +9,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.kingsman.myapp.mapper.MemberMapper;
@@ -28,13 +24,15 @@ import jakarta.servlet.http.HttpSession;
 @Controller
 public class MemberController {
 
+
 	@Autowired
 	private MemberMapper memberMapper;
+
 
 	@Resource
 	private MemberService memberService;
 
-//	
+
 	@RequestMapping("/")
 	public String join() {
 		return "MemberJoin";
@@ -78,7 +76,7 @@ public class MemberController {
 		if (user == null) {
 			return null;
 		}
-	
+
 
 		System.out.println(user);
 		return user.getB_ID();
