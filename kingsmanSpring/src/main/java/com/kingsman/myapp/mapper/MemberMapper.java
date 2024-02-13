@@ -5,14 +5,12 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.kingsman.myapp.model.Member;
 import com.kingsman.myapp.model.Product;
 import com.kingsman.myapp.model.User;
 
 @Mapper
 public interface MemberMapper {
 
-	public void MemberJoin(Member mem);
 
 	public List<Product> ProductList();
 
