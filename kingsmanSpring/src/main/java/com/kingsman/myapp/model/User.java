@@ -22,7 +22,7 @@ public class User {
 	private Date B_DATE;
 	private int B_ROLE;
 	
-	
+
 	
 	
 	

@@ -17,6 +17,8 @@ public interface MemberMapper {
 	public List<Product> ProductList();
 
 	public List<User> UserList();
+
+
 	
 	public List<User> searchUsers(Map<String, String> searchParams);
 
