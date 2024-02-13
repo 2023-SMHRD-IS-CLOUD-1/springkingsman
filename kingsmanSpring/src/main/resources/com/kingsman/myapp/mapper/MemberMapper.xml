@@ -9,24 +9,15 @@
 	<select id="ProductList" resultType="com.kingsman.myapp.model.Product"> 
 		SELECT * FROM B_PRODUCT
 	</select>
-	<select id="SearchUsers" parameterType="java.util.Map" resultType="com.kingsman.myapp.model.User">
-	  SELECT * FROM B_USER
-	  <where>
-	    <if test="name != null">
-	      AND NAME LIKE CONCAT('%', #{name}, '%')
-	    </if>
-	    <if test="position != null">
-	      AND POSITION LIKE CONCAT('%', #{position}, '%')
-	    </if>
-	    <if test="deps != null">
-	      AND DEPS LIKE CONCAT('%', #{deps}, '%')
-	    </if>
-	  </where>
+	<select id="searchUsers" parameterType="java.util.Map" resultType="com.kingsman.myapp.model.User">
+	    SELECT * FROM B_USER WHERE ${category} LIKE '%' || #{searchQuery} || '%'
 	</select>
 	<insert id="UserSignUp" parameterType="com.kingsman.myapp.model.Member">
 		INSERT INTO B_USER(B_ID, B_PW, B_NAME, B_DEPS, B_POSITION, B_EMPNO, B_PHONE)
 		VALUES(#{B_ID},#{B_PW},#{B_NAME},#{B_DEPS},#{B_POSITION},#{B_EMPNO},#{B_PHONE})
 	</insert>
+
+
 
 	
 

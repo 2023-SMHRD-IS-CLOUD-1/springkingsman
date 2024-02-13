@@ -1,7 +1,9 @@
 package com.kingsman.myapp.controller;
 
 import java.util.List;
+import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.kingsman.myapp.mapper.MemberMapper;
 import com.kingsman.myapp.model.PrText;
 import com.kingsman.myapp.model.Product;
 import com.kingsman.myapp.model.User;
@@ -18,7 +21,8 @@ import jakarta.annotation.Resource;
 
 @Controller
 public class MemberController {
-
+	@Autowired
+	private MemberMapper memberMapper;
 	@Resource
 	private MemberService memberService;
 //	
@@ -35,6 +39,18 @@ public class MemberController {
 	    return payload2;
 	}
 	
+	@ResponseBody
+	@PostMapping("/UserManagement")
+	@CrossOrigin(origins="http://localhost:3000")
+	 public List<User> searchUsers(@RequestBody Map<String, String> searchData) {
+	    
+	    return memberMapper.searchUsers(searchData); 
+	}
+
+
+	
+	
+
 	
 	
 	
@@ -63,6 +79,8 @@ public class MemberController {
 	@CrossOrigin(origins="http://localhost:3000")
 	public User loginSuccessFail(@RequestBody User loginUserIdPw ) {
 		System.out.println("로그인??" + loginUserIdPw.toString());
+		System.out.println("로그인??" + loginUserIdPw.getB_ID() + loginUserIdPw.getB_PW());
+		memberService.LoginCheck(loginUserIdPw);
 		return loginUserIdPw;
 	}
 	
