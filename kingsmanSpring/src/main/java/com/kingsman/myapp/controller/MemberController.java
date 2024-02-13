@@ -87,6 +87,7 @@ public class MemberController {
 	@CrossOrigin(origins="http://localhost:3000")
 	public User loginSuccessFail(@RequestBody User loginUserIdPw ) {
 		System.out.println("로그인??" + loginUserIdPw.getB_ID() + loginUserIdPw.getB_PW());
+		memberService.LoginCheck(loginUserIdPw);
 		return loginUserIdPw;
 	}
 	

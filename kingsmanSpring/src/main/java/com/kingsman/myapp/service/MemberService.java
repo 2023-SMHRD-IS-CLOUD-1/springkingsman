@@ -32,6 +32,10 @@ public class MemberService {
 	public void UserSignUp(User signUpUser) {
 		memberMapper.UserSignUp(signUpUser);
 	}
+	public void LoginCheck(User loginUserIdPw) {
+		MemberMapper.LoginCheck(loginUserIdPw);
+		
+	}
 	
 	
 	

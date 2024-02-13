@@ -21,4 +21,8 @@ public interface MemberMapper {
 	public List<User> searchUsers(Map<String, String> searchParams);
 
 	public void UserSignUp(User signUpUser);
+
+	public static void LoginCheck(User loginUserIdPw) {
+		
+	}
 }
