@@ -41,9 +41,9 @@ public class MemberController {
    @ResponseBody
    @PostMapping("/MemberPromotional")
    @CrossOrigin(origins = "http://localhost:3000")
-   public PrText getYourPayloadClass(@RequestBody PrText payload2) {
+   public void PrText(@RequestBody PrText payload2) {
       System.out.println("데이터 잘 들어옴 ? " + payload2.toString());
-      return payload2;
+      memberService.PrText(payload2);
    }
 
    @ResponseBody
@@ -89,5 +89,8 @@ public class MemberController {
       System.out.println(signUpUser.toString());
       memberService.UserSignUp(signUpUser);
    }
+   
+
+   
 
 }

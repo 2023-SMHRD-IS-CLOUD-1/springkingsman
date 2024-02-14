@@ -19,7 +19,10 @@
 		WHERE B_ID = #{B_ID}
 		AND B_PW = #{B_PW}
 	</select>
-
+	<insert id="PrText" parameterType="com.kingsman.myapp.model.PrText">
+    INSERT INTO B_PR_TEXT(PR_QUESTION,PR_TEXT,PR_ID,PR_PRODUCT,PR_NAME)
+    VALUES(#{PR_QUESTION},#{PR_TEXT},'Admin',#{PR_PRODUCT},#{PR_NAME})
+	</insert>
 	
 
 

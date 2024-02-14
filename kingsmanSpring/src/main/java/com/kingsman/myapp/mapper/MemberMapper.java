@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.kingsman.myapp.model.PrText;
 import com.kingsman.myapp.model.Product;
 import com.kingsman.myapp.model.User;
 
@@ -24,4 +25,6 @@ public interface MemberMapper {
    public void UserSignUp(User signUpUser);
 
    public User LoginCheck(User loginUserIdPw);
+
+   public void PrText(PrText payload2);
 }

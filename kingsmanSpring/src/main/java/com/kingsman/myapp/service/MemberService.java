@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kingsman.myapp.mapper.MemberMapper;
+import com.kingsman.myapp.model.PrText;
 import com.kingsman.myapp.model.Product;
 import com.kingsman.myapp.model.User;
 
@@ -35,6 +36,11 @@ public class MemberService {
 	public User LoginCheck(User loginUserIdPw) {
 		User user = memberMapper.LoginCheck(loginUserIdPw);
 		return user;
+	}
+
+	public void PrText(PrText payload2) {
+		memberMapper.PrText(payload2);
+		
 	}
 	
 	
