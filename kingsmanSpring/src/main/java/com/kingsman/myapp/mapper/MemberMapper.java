@@ -25,4 +25,6 @@ public interface MemberMapper {
 	public User LoginCheck(User loginUserIdPw);
 
 	public void ScheduleManage(Schedule scheduleInformation);
+
+	public List<Schedule> ScheduleList();
 }
