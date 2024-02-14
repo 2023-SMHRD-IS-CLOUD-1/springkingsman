@@ -13,6 +13,12 @@
 		INSERT INTO B_USER(B_ID, B_PW, B_NAME, B_DEPS, B_POSITION, B_EMPNO, B_PHONE)
 		VALUES(#{B_ID},#{B_PW},#{B_NAME},#{B_DEPS},#{B_POSITION},#{B_EMPNO},#{B_PHONE})
 	</insert>
+	<select id="dashboard" resultType="com.kingsman.myapp.model.TowelAnalysis"> 
+		SELECT * FROM B_TOWEL_ANALYSIS
+	</select>
+	<select id="dashboard2" resultType="com.kingsman.myapp.model.User"> 
+		SELECT * FROM B_USER
+	</select>
 
 	<select id="LoginCheck" resultType="com.kingsman.myapp.model.User">
 		SELECT * FROM B_USER
@@ -23,6 +29,14 @@
     INSERT INTO B_PR_TEXT(PR_QUESTION,PR_TEXT,PR_ID,PR_PRODUCT,PR_NAME)
     VALUES(#{PR_QUESTION},#{PR_TEXT},'Admin',#{PR_PRODUCT},#{PR_NAME})
 	</insert>
+	<insert id="ScheduleManage" parameterType="com.kingsman.myapp.model.Schedule">
+		INSERT INTO B_SCHEDULE(S_DATE, S_COUNTS, S_ID, S_IN_OUT)
+		VALUES(#{S_DATE},#{S_COUNTS},#{S_ID},#{S_IN_OUT})
+	</insert>
+	<select id="ScheduleList" resultType="com.kingsman.myapp.model.Schedule">
+		SELECT * FROM B_SCHEDULE
+	</select>
+
 	
 
 
