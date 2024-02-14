@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.kingsman.myapp.model.Product;
+import com.kingsman.myapp.model.TowelAnalysis;
 import com.kingsman.myapp.model.Schedule;
 import com.kingsman.myapp.model.User;
 
@@ -21,6 +22,10 @@ public interface MemberMapper {
 	public List<User> searchUsers(Map<String, String> searchParams);
 
 	public void UserSignUp(User signUpUser);
+
+	public List<TowelAnalysis> dashboard();
+
+	public List<User> dashboard2();
 
 	public User LoginCheck(User loginUserIdPw);
 

@@ -13,6 +13,12 @@
 		INSERT INTO B_USER(B_ID, B_PW, B_NAME, B_DEPS, B_POSITION, B_EMPNO, B_PHONE)
 		VALUES(#{B_ID},#{B_PW},#{B_NAME},#{B_DEPS},#{B_POSITION},#{B_EMPNO},#{B_PHONE})
 	</insert>
+	<select id="dashboard" resultType="com.kingsman.myapp.model.TowelAnalysis"> 
+		SELECT * FROM B_TOWEL_ANALYSIS
+	</select>
+	<select id="dashboard2" resultType="com.kingsman.myapp.model.User"> 
+		SELECT * FROM B_USER
+	</select>
 
 	<select id="LoginCheck" resultType="com.kingsman.myapp.model.User">
 		SELECT * FROM B_USER

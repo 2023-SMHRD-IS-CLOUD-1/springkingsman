@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.kingsman.myapp.mapper.MemberMapper;
 import com.kingsman.myapp.model.Product;
+import com.kingsman.myapp.model.TowelAnalysis;
 import com.kingsman.myapp.model.Schedule;
 import com.kingsman.myapp.model.User;
 
@@ -28,16 +29,25 @@ public class MemberService {
 		List<User> res = memberMapper.UserList();
 		return res;
 	}
-	
-	
+
 	public void UserSignUp(User signUpUser) {
 		memberMapper.UserSignUp(signUpUser);
 	}
+	//한명훈
+	public List<TowelAnalysis> dashboard() {
+		return memberMapper.dashboard();
+		
+	}
+	//한명훈
+	public List<User> dashboard2() {
+		return memberMapper.dashboard2();
+	}
+	
 	public User LoginCheck(User loginUserIdPw) {
 		User user = memberMapper.LoginCheck(loginUserIdPw);
 		return user;
 	}
-
+	
 	
 	
 	

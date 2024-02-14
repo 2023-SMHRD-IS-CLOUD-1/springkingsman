@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.kingsman.myapp.mapper.MemberMapper;
 import com.kingsman.myapp.model.PrText;
 import com.kingsman.myapp.model.Product;
+import com.kingsman.myapp.model.TowelAnalysis;
 import com.kingsman.myapp.model.User;
 import com.kingsman.myapp.service.MemberService;
 
@@ -23,7 +24,6 @@ import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class MemberController {
-
 
    @Autowired
    private MemberMapper memberMapper;
@@ -82,12 +82,30 @@ public class MemberController {
       return user.getB_ID();
    }
 
-   @ResponseBody
-   @PostMapping("/signUp")
-   @CrossOrigin(origins = "http://localhost:3000")
-   public void signUpUser(@RequestBody User signUpUser) {
-      System.out.println(signUpUser.toString());
-      memberService.UserSignUp(signUpUser);
-   }
 
+	
+	@ResponseBody
+	@PostMapping("/signUp")
+	@CrossOrigin(origins="http://localhost:3000")
+	public void signUpUser(@RequestBody User signUpUser) {
+		System.out.println(signUpUser.toString());
+		memberService.UserSignUp(signUpUser);
+	}
+	
+	//한명훈
+	@ResponseBody
+	@PostMapping("/Dashboard")
+	@CrossOrigin(origins="http://localhost:3000")
+	public List<TowelAnalysis> dashboard() {
+		return memberService.dashboard();
+	}
+	//한명훈
+	@ResponseBody
+	@PostMapping("/Dashboard2")
+	@CrossOrigin(origins="http://localhost:3000")
+	public List<User> dashboard2() {
+		return memberService.dashboard2();
+	}
+	
+	
 }
