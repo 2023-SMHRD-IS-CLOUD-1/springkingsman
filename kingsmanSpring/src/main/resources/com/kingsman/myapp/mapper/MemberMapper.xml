@@ -19,6 +19,10 @@
 		WHERE B_ID = #{B_ID}
 		AND B_PW = #{B_PW}
 	</select>
+	<insert id="ScheduleManage" parameterType="com.kingsman.myapp.model.Schedule">
+		INSERT INTO B_SCHEDULE(S_DATE, S_COUNTS, S_ID, S_IN_OUT)
+		VALUES(#{S_DATE},#{S_COUNTS},#{S_ID},#{S_IN_OUT})
+	</insert>
 
 	
 

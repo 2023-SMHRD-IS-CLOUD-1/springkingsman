@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.kingsman.myapp.mapper.MemberMapper;
 import com.kingsman.myapp.model.Product;
+import com.kingsman.myapp.model.Schedule;
 import com.kingsman.myapp.model.User;
 
 @Service
@@ -36,6 +37,7 @@ public class MemberService {
 		User user = memberMapper.LoginCheck(loginUserIdPw);
 		return user;
 	}
+
 	
 	
 	
