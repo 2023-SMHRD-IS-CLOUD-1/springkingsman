@@ -3,16 +3,13 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kingsman.myapp.mapper.MemberMapper">
-	<insert id="MemberJoin" parameterType="com.kingsman.myapp.model.Member">
-		insert into dong values(1,1)
-	</insert>
 	<select id="ProductList" resultType="com.kingsman.myapp.model.Product"> 
 		SELECT * FROM B_PRODUCT
 	</select>
 	<select id="searchUsers" parameterType="java.util.Map" resultType="com.kingsman.myapp.model.User">
 	    SELECT * FROM B_USER WHERE ${category} LIKE '%' || #{searchQuery} || '%'
 	</select>
-	<insert id="UserSignUp" parameterType="com.kingsman.myapp.model.Member">
+	<insert id="UserSignUp" parameterType="com.kingsman.myapp.model.User">
 		INSERT INTO B_USER(B_ID, B_PW, B_NAME, B_DEPS, B_POSITION, B_EMPNO, B_PHONE)
 		VALUES(#{B_ID},#{B_PW},#{B_NAME},#{B_DEPS},#{B_POSITION},#{B_EMPNO},#{B_PHONE})
 	</insert>
@@ -23,7 +20,15 @@
 		SELECT * FROM B_USER
 	</select>
 
-
+	<select id="LoginCheck" resultType="com.kingsman.myapp.model.User">
+		SELECT * FROM B_USER
+		WHERE B_ID = #{B_ID}
+		AND B_PW = #{B_PW}
+	</select>
+	<insert id="ScheduleManage" parameterType="com.kingsman.myapp.model.Schedule">
+		INSERT INTO B_SCHEDULE(S_DATE, S_COUNTS, S_ID, S_IN_OUT)
+		VALUES(#{S_DATE},#{S_COUNTS},#{S_ID},#{S_IN_OUT})
+	</insert>
 
 	
 

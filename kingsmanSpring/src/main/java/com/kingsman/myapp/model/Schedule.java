@@ -18,6 +18,7 @@ public class Schedule {
 	private String S_PRODUCT;
 	private String S_NAME;
 	private String S_NOTE;
+	private String S_IN_OUT;
 	
 	
 	

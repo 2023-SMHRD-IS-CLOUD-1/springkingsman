@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kingsman.myapp.mapper.MemberMapper;
-import com.kingsman.myapp.model.Member;
 import com.kingsman.myapp.model.Product;
 import com.kingsman.myapp.model.TowelAnalysis;
+import com.kingsman.myapp.model.Schedule;
 import com.kingsman.myapp.model.User;
 
 @Service
@@ -17,9 +17,10 @@ public class MemberService {
 	@Autowired
 	private MemberMapper memberMapper;
 	
-	public void MemberJoin(Member mem) {
+	public void MemberJoin(User mem) {
 		memberMapper.MemberJoin(mem);
 	}
+
 	public List<Product> ProductList() {
 		List<Product> res = memberMapper.ProductList();
 		return res;
@@ -40,6 +41,11 @@ public class MemberService {
 	//한명훈
 	public List<User> dashboard2() {
 		return memberMapper.dashboard2();
+	}
+	
+	public User LoginCheck(User loginUserIdPw) {
+		User user = memberMapper.LoginCheck(loginUserIdPw);
+		return user;
 	}
 	
 	
