@@ -24,9 +24,10 @@ public class PrText {
 	
 	@Override
     public String toString() {
-        return "YourPayloadClass{" +
+        return "PrText{" +
                 "name='" + PR_NAME + '\'' +
-                ", promotionalText='" + PR_TEXT + '\'' +
+                ", PR_QUESTION='" + PR_QUESTION + '\'' +
+                ", PR_TEXT'"+PR_TEXT+'\''+
                 ", product='" + PR_PRODUCT + '\'' +
                 '}';
     }

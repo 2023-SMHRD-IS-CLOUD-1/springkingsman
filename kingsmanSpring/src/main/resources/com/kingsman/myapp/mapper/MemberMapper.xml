@@ -25,10 +25,17 @@
 		WHERE B_ID = #{B_ID}
 		AND B_PW = #{B_PW}
 	</select>
+	<insert id="PrText" parameterType="com.kingsman.myapp.model.PrText">
+    INSERT INTO B_PR_TEXT(PR_QUESTION,PR_TEXT,PR_ID,PR_PRODUCT,PR_NAME)
+    VALUES(#{PR_QUESTION},#{PR_TEXT},'Admin',#{PR_PRODUCT},#{PR_NAME})
+	</insert>
 	<insert id="ScheduleManage" parameterType="com.kingsman.myapp.model.Schedule">
 		INSERT INTO B_SCHEDULE(S_DATE, S_COUNTS, S_ID, S_IN_OUT)
 		VALUES(#{S_DATE},#{S_COUNTS},#{S_ID},#{S_IN_OUT})
 	</insert>
+	<select id="ScheduleList" resultType="com.kingsman.myapp.model.Schedule">
+		SELECT * FROM B_SCHEDULE
+	</select>
 	<delete id="userDelete" parameterType="String">
 		DELETE FROM B_USER
 		WHERE B_ID = #{deleteId}

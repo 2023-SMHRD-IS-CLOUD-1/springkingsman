@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kingsman.myapp.mapper.MemberMapper;
+import com.kingsman.myapp.model.PrText;
 import com.kingsman.myapp.model.Product;
 import com.kingsman.myapp.model.TowelAnalysis;
 import com.kingsman.myapp.model.Schedule;
@@ -58,7 +59,10 @@ public class MemberService {
 		memberMapper.userModify(modifyData);
 		
 	}
-	
+	public void PrText(PrText payload2) {
+		memberMapper.PrText(payload2);
+		
+	}
 	
 	
 	

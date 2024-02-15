@@ -1,5 +1,7 @@
 package com.kingsman.myapp.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -32,6 +34,15 @@ public class ScheduleController {
 	public void scheduleManage(@RequestBody Schedule scheduleInformation) {
 		System.out.println("일정관리" + scheduleInformation);
 		scheduleService.scheduleManage(scheduleInformation);
+	}
+	
+	@ResponseBody
+	@RequestMapping("/scheduleList")
+	@CrossOrigin(origins = "http://localhost:3000")
+	public List<Schedule> getScheduleList(){
+		List<Schedule> scheduleList = scheduleService.ScheduleList();
+		System.out.println(scheduleList);
+		return scheduleList;
 	}
 
 }

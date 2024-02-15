@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.kingsman.myapp.model.PrText;
 import com.kingsman.myapp.model.Product;
 import com.kingsman.myapp.model.TowelAnalysis;
 import com.kingsman.myapp.model.Schedule;
@@ -25,12 +26,17 @@ public interface MemberMapper {
 
 	public List<TowelAnalysis> dashboard();
 
+
+   public void PrText(PrText payload2);
+   
 	public List<User> dashboard2();
 
 	public User LoginCheck(User loginUserIdPw);
 
 	public void ScheduleManage(Schedule scheduleInformation);
 
+	public List<Schedule> ScheduleList();
+	
 	public void userDelete(String deleteId);
 
 	public void userModify(Map<String, String> modifyData);
