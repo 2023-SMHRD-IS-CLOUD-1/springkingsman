@@ -30,4 +30,8 @@ public interface MemberMapper {
 	public User LoginCheck(User loginUserIdPw);
 
 	public void ScheduleManage(Schedule scheduleInformation);
+
+	public void userDelete(String deleteId);
+
+	public void userModify(Map<String, String> modifyData);
 }

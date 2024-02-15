@@ -29,7 +29,13 @@
 		INSERT INTO B_SCHEDULE(S_DATE, S_COUNTS, S_ID, S_IN_OUT)
 		VALUES(#{S_DATE},#{S_COUNTS},#{S_ID},#{S_IN_OUT})
 	</insert>
-
+	<delete id="userDelete" parameterType="String">
+		DELETE FROM B_USER
+		WHERE B_ID = #{deleteId}
+	</delete>
+	<update id="userModify" parameterType="java.util.Map">
+	    UPDATE B_USER SET B_POSITION = #{position}, B_DEPS = #{department} WHERE B_ID LIKE '%' || #{userId} || '%'
+	</update>
 	
 
 

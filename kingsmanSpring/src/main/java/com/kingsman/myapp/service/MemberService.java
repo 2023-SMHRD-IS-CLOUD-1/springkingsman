@@ -1,6 +1,7 @@
 package com.kingsman.myapp.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -46,6 +47,16 @@ public class MemberService {
 	public User LoginCheck(User loginUserIdPw) {
 		User user = memberMapper.LoginCheck(loginUserIdPw);
 		return user;
+	}
+	//한명훈
+	public void userDelete(String deleteId) {
+		memberMapper.userDelete(deleteId);
+	}
+
+	//한명훈
+	public void userModify(Map<String, String> modifyData) {
+		memberMapper.userModify(modifyData);
+		
 	}
 	
 	
