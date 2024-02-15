@@ -107,5 +107,23 @@ public class MemberController {
 		return memberService.dashboard2();
 	}
 	
+	//한명훈
+	@ResponseBody
+	@PostMapping("/UserManagement2")
+	@CrossOrigin(origins = "http://localhost:3000")
+	public void userDelete(@RequestBody String deleteId) {
+		deleteId = deleteId.substring(1, deleteId.length() - 1);
+		System.out.println(deleteId);
+		memberService.userDelete(deleteId);
+		
+	}
+	//한명훈
+	@ResponseBody
+	@PostMapping("/UserModify")
+	@CrossOrigin(origins = "http://localhost:3000")
+	public void userModify(@RequestBody Map<String, String> modifyData) {
+		memberService.userModify(modifyData);
+		
+	}
 	
 }

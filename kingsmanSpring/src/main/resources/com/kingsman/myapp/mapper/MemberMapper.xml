@@ -41,6 +41,13 @@
   SET B_PW = #{B_PW}
   WHERE B_ID = #{B_ID}
 </update>
+	<delete id="userDelete" parameterType="String">
+		DELETE FROM B_USER
+		WHERE B_ID = #{deleteId}
+	</delete>
+	<update id="userModify" parameterType="java.util.Map">
+	    UPDATE B_USER SET B_POSITION = #{position}, B_DEPS = #{department} WHERE B_ID LIKE '%' || #{userId} || '%'
+	</update>
 	
 
 
