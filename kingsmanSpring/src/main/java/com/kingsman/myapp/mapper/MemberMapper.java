@@ -36,4 +36,7 @@ public interface MemberMapper {
 	public void ScheduleManage(Schedule scheduleInformation);
 
 	public List<Schedule> ScheduleList();
+
+	public void Usermodify(User data);
+
 }
