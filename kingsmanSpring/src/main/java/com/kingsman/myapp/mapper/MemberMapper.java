@@ -37,9 +37,19 @@ public interface MemberMapper {
 
 	public List<Schedule> ScheduleList();
 	
+	public void Usermodify(User data);
+
+	
 	public void userDelete(String deleteId);
 
 	public void userModify(Map<String, String> modifyData);
 
 	public List<PrText> PTData();
+	
+	public List<User> NotiList();
+
+	public void Upnoti(User data);
+
+	public void Resetnoti(User data2);
+
 }

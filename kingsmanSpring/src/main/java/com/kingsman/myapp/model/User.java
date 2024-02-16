@@ -21,7 +21,7 @@ public class User {
 	private String B_PHONE;
 	private Date B_DATE;
 	private int B_ROLE;
-	
+	private int B_NOTIFICATION;
 
 	
 	

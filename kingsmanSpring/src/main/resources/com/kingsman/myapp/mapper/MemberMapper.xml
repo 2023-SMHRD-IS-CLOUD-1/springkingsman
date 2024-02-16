@@ -36,6 +36,11 @@
 	<select id="ScheduleList" resultType="com.kingsman.myapp.model.Schedule">
 		SELECT * FROM B_SCHEDULE
 	</select>
+	<update id="Usermodify" parameterType="com.kingsman.myapp.model.User">
+  UPDATE B_USER
+  SET B_PW = #{B_PW}
+  WHERE B_ID = #{B_ID}
+</update>
 	<delete id="userDelete" parameterType="String">
 		DELETE FROM B_USER
 		WHERE B_ID = #{deleteId}
@@ -46,7 +51,19 @@
 	<select id="PTData" resultType="com.kingsman.myapp.model.PrText">
 		SELECT * FROM B_PR_TEXT
 	</select>
-	
+	<select id="NotiList" resultType="com.kingsman.myapp.model.User">
+	select b_NOTIFICATION from B_USER where b_ROLE=1
+	</select>
+	<update id="Upnoti" parameterType="com.kingsman.myapp.model.User">
+		UPDATE B_USER
+        SET B_NOTIFICATION = B_NOTIFICATION + 1
+        WHERE B_ROLE = 1
+	</update>
+	<update id="Resetnoti" parameterType="com.kingsman.myapp.model.User">
+    UPDATE B_USER
+    SET B_NOTIFICATION = #{B_NOTIFICATION}
+    WHERE B_ROLE = 1
+</update>
 
 
 
