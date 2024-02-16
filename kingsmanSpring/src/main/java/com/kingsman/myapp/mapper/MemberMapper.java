@@ -43,4 +43,12 @@ public interface MemberMapper {
 	public void userDelete(String deleteId);
 
 	public void userModify(Map<String, String> modifyData);
+
+
+	public List<User> NotiList();
+
+
+	public void Upnoti(User data);
+
+	public void Resetnoti(User data2);
 }

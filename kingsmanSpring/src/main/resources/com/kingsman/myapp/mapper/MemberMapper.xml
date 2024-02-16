@@ -48,7 +48,19 @@
 	<update id="userModify" parameterType="java.util.Map">
 	    UPDATE B_USER SET B_POSITION = #{position}, B_DEPS = #{department} WHERE B_ID LIKE '%' || #{userId} || '%'
 	</update>
-	
+	<select id="NotiList" resultType="com.kingsman.myapp.model.User">
+	select b_NOTIFICATION from B_USER where b_ROLE=1
+	</select>
+	<update id="Upnoti" parameterType="com.kingsman.myapp.model.User">
+		UPDATE B_USER
+        SET B_NOTIFICATION = B_NOTIFICATION + 1
+        WHERE B_ROLE = 1
+	</update>
+	<update id="Resetnoti" parameterType="com.kingsman.myapp.model.User">
+    UPDATE B_USER
+    SET B_NOTIFICATION = #{B_NOTIFICATION}
+    WHERE B_ROLE = 1
+</update>
 
 
 
