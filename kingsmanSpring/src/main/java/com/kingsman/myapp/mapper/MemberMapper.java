@@ -40,4 +40,6 @@ public interface MemberMapper {
 	public void userDelete(String deleteId);
 
 	public void userModify(Map<String, String> modifyData);
+
+	public List<PrText> PTData();
 }
