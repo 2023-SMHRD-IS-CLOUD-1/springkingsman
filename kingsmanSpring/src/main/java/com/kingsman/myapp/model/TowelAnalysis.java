@@ -20,7 +20,7 @@ public class TowelAnalysis {
 	private String T_ID;
 	
 	
-	
+	private User user;
 	
 	
 	

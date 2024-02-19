@@ -23,10 +23,17 @@ public class User {
 	private int B_ROLE;
 	private int B_NOTIFICATION;
 
+	private User user;
 	
 	
-	
-	
+	 public User getUser() {
+	        return user;
+	    }
+
+	    // 추가된 user 프로퍼티의 setter 메서드
+	    public void setUser(User user) {
+	        this.user = user;
+	    }
 	
 	
 	
