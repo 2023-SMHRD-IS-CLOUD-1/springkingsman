@@ -9,7 +9,13 @@
 	</select>
 	<select id="searchUsers" parameterType="java.util.Map"
 		resultType="com.kingsman.myapp.model.User">
-		SELECT * FROM B_USER WHERE ${category} LIKE '%' || #{searchQuery} || '%'
+		SELECT * FROM B_USER WHERE ${category} LIKE '%' ||
+		#{searchQuery} || '%'
+	</select>
+	<select id="searchUsers" parameterType="java.util.Map"
+		resultType="com.kingsman.myapp.model.User">
+		SELECT * FROM B_USER WHERE LOWER(${category}) LIKE '%' ||
+		LOWER(#{searchQuery}) || '%'
 	</select>
 	<insert id="UserSignUp"
 		parameterType="com.kingsman.myapp.model.User">
@@ -34,7 +40,8 @@
 	</select>
 	<insert id="PrText"
 		parameterType="com.kingsman.myapp.model.PrText">
-		INSERT INTO B_PR_TEXT(PR_QUESTION,PR_TEXT,PR_ID,PR_PRODUCT,PR_NAME)
+		INSERT INTO
+		B_PR_TEXT(PR_QUESTION,PR_TEXT,PR_ID,PR_PRODUCT,PR_NAME)
 		VALUES(#{PR_QUESTION},#{PR_TEXT},'Admin',#{PR_PRODUCT},#{PR_NAME})
 	</insert>
 	<insert id="ScheduleManage"
@@ -58,14 +65,17 @@
 		B_ID = #{deleteId}
 	</delete>
 	<update id="userModify" parameterType="java.util.Map">
-		UPDATE B_USER SET B_POSITION = #{position}, B_DEPS = #{department} WHERE
-		B_ID LIKE '%' || #{userId} || '%'
+		UPDATE B_USER SET
+		B_POSITION = #{position}, B_DEPS = #{department} WHERE
+		B_ID LIKE '%' ||
+		#{userId} || '%'
 	</update>
 	<select id="PTData" resultType="com.kingsman.myapp.model.PrText">
 		SELECT * FROM B_PR_TEXT
 	</select>
 	<select id="NotiList" resultType="com.kingsman.myapp.model.User">
-		select b_NOTIFICATION from B_USER where b_ROLE=1
+		select b_NOTIFICATION from
+		B_USER where b_ROLE=1
 	</select>
 	<update id="Upnoti"
 		parameterType="com.kingsman.myapp.model.User">
@@ -110,17 +120,18 @@
 
 
 	<select id="Notiresultfinal" resultMap="Noti1">
-		SELECT B_NAME, B_POSITION, T_DATE, T_INDEX
+		SELECT B_NAME,
+		B_POSITION, T_DATE, T_INDEX
 		FROM (
 		SELECT *
 		FROM b_towel_analysis
-		INNER JOIN b_user ON b_towel_analysis.T_ID = b_user.b_ID
-		ORDER BY T_INDEX DESC
+		INNER
+		JOIN b_user ON b_towel_analysis.T_ID = b_user.b_ID
+		ORDER BY T_INDEX
+		DESC
 		)
 		WHERE ROWNUM &lt;= 4
 	</select>
-
-
 
 
 </mapper>
