@@ -64,7 +64,32 @@
     SET B_NOTIFICATION = #{B_NOTIFICATION}
     WHERE B_ROLE = 1
 </update>
-
+<select id="Notiresult" resultMap="Noti1">
+        SELECT *
+        FROM b_towel_analysis
+        INNER JOIN b_user ON b_towel_analysis.T_ID = b_user.b_ID
+    </select>
+<resultMap id="Noti1" type="com.kingsman.myapp.model.TowelAnalysis">
+    <id property="T_INDEX" column="T_INDEX"/>
+    <result property="T_IMAGE" column="T_IMAGE"/>
+    <result property="T_COUNT" column="T_COUNT"/>
+    <result property="T_RESULT" column="T_RESULT"/>
+    <result property="T_ACCURACY" column="T_ACCURACY"/>
+    <result property="T_DATE" column="T_DATE"/>
+    
+    <!-- User 클래스에 대한 매핑 -->
+    <association property="user" javaType="com.kingsman.myapp.model.User">
+        <id property="B_ID" column="T_ID"/> <!-- T_ID가 b_user의 기본 키인 B_ID와 연결 -->
+        <result property="B_NAME" column="B_NAME"/>
+        <result property="B_DEPS" column="B_DEPS"/>
+        <result property="B_POSITION" column="B_POSITION"/>
+        <result property="B_EMPNO" column="B_EMPNO"/>
+        <result property="B_PHONE" column="B_PHONE"/>
+        <result property="B_DATE" column="B_DATE"/>
+        <result property="B_ROLE" column="B_ROLE"/>
+        <result property="B_NOTIFICATION" column="B_NOTIFICATION"/>
+    </association>
+</resultMap>
 
 
 
