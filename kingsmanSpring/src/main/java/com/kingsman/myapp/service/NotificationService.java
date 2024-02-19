@@ -33,5 +33,9 @@ public class NotificationService {
 		List<TowelAnalysis> res = memberMapper.Notiresult();
 		return res;
 	}
+	public List<TowelAnalysis> Notiresultfinal() {
+		List<TowelAnalysis> res = memberMapper.Notiresultfinal();
+		return res;
+	}
 
 }

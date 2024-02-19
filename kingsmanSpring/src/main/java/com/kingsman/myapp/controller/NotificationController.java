@@ -49,7 +49,7 @@ public class NotificationController {
 		notificationService.Resetnoti(data2);
 	}
 
-	@RequestMapping("/Notiresult")
+	@RequestMapping("/Notiresultfinal")
 	@ResponseBody
 	public List<TowelAnalysis> Notiresult() {
 		List<TowelAnalysis> list = notificationService.Notiresult();

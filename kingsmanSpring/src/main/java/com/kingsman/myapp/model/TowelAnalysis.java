@@ -18,8 +18,6 @@ public class TowelAnalysis {
 	private int T_ACCURACY;
 	private Date T_DATE;
 	private String T_ID;
-	
-	
 	private User user;
 	
 	

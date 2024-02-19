@@ -53,4 +53,6 @@ public interface MemberMapper {
 	public void Resetnoti(User data2);
 
 	public List<TowelAnalysis> Notiresult();
+
+	public List<TowelAnalysis> Notiresultfinal();
 }
