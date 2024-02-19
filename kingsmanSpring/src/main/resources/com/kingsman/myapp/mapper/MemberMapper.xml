@@ -3,94 +3,129 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kingsman.myapp.mapper.MemberMapper">
-	<select id="ProductList" resultType="com.kingsman.myapp.model.Product"> 
+	<select id="ProductList"
+		resultType="com.kingsman.myapp.model.Product">
 		SELECT * FROM B_PRODUCT
 	</select>
 	<select id="searchUsers" parameterType="java.util.Map" resultType="com.kingsman.myapp.model.User">
 	    SELECT * FROM B_USER WHERE LOWER(${category}) LIKE '%' || LOWER(#{searchQuery}) || '%' AND  B_ROLE  = 0
 	</select>
-	<insert id="UserSignUp" parameterType="com.kingsman.myapp.model.User">
-		INSERT INTO B_USER(B_ID, B_PW, B_NAME, B_DEPS, B_POSITION, B_EMPNO, B_PHONE)
+
+	<insert id="UserSignUp"
+		parameterType="com.kingsman.myapp.model.User">
+		INSERT INTO B_USER(B_ID, B_PW, B_NAME, B_DEPS,
+		B_POSITION, B_EMPNO, B_PHONE)
 		VALUES(#{B_ID},#{B_PW},#{B_NAME},#{B_DEPS},#{B_POSITION},#{B_EMPNO},#{B_PHONE})
 	</insert>
-	<select id="dashboard" resultType="com.kingsman.myapp.model.TowelAnalysis"> 
+	<select id="dashboard"
+		resultType="com.kingsman.myapp.model.TowelAnalysis">
 		SELECT * FROM B_TOWEL_ANALYSIS
 	</select>
-	<select id="dashboard2" resultType="com.kingsman.myapp.model.User"> 
+	<select id="dashboard2"
+		resultType="com.kingsman.myapp.model.User">
 		SELECT * FROM B_USER
 	</select>
 
-	<select id="LoginCheck" resultType="com.kingsman.myapp.model.User">
+	<select id="LoginCheck"
+		resultType="com.kingsman.myapp.model.User">
 		SELECT * FROM B_USER
 		WHERE B_ID = #{B_ID}
 		AND B_PW = #{B_PW}
 	</select>
-	<insert id="PrText" parameterType="com.kingsman.myapp.model.PrText">
-    INSERT INTO B_PR_TEXT(PR_QUESTION,PR_TEXT,PR_ID,PR_PRODUCT,PR_NAME)
-    VALUES(#{PR_QUESTION},#{PR_TEXT},'Admin',#{PR_PRODUCT},#{PR_NAME})
+	<insert id="PrText"
+		parameterType="com.kingsman.myapp.model.PrText">
+		INSERT INTO
+		B_PR_TEXT(PR_QUESTION,PR_TEXT,PR_ID,PR_PRODUCT,PR_NAME)
+		VALUES(#{PR_QUESTION},#{PR_TEXT},'Admin',#{PR_PRODUCT},#{PR_NAME})
 	</insert>
-	<insert id="ScheduleManage" parameterType="com.kingsman.myapp.model.Schedule">
+	<insert id="ScheduleManage"
+		parameterType="com.kingsman.myapp.model.Schedule">
 		INSERT INTO B_SCHEDULE(S_DATE, S_COUNTS, S_ID, S_IN_OUT)
 		VALUES(#{S_DATE},#{S_COUNTS},#{S_ID},#{S_IN_OUT})
 	</insert>
-	<select id="ScheduleList" resultType="com.kingsman.myapp.model.Schedule">
+	<select id="ScheduleList"
+		resultType="com.kingsman.myapp.model.Schedule">
 		SELECT * FROM B_SCHEDULE
 	</select>
-	<update id="Usermodify" parameterType="com.kingsman.myapp.model.User">
-  UPDATE B_USER
-  SET B_PW = #{B_PW}
-  WHERE B_ID = #{B_ID}
-</update>
+	<update id="Usermodify"
+		parameterType="com.kingsman.myapp.model.User">
+		UPDATE B_USER
+		SET B_PW = #{B_PW}
+		WHERE B_ID = #{B_ID}
+	</update>
 	<delete id="userDelete" parameterType="String">
 		DELETE FROM B_USER
-		WHERE B_ID = #{deleteId}
+		WHERE
+		B_ID = #{deleteId}
 	</delete>
 	<update id="userModify" parameterType="java.util.Map">
-	    UPDATE B_USER SET B_POSITION = #{position}, B_DEPS = #{department} WHERE B_ID LIKE '%' || #{userId} || '%'
+		UPDATE B_USER SET
+		B_POSITION = #{position}, B_DEPS = #{department} WHERE
+		B_ID LIKE '%' ||
+		#{userId} || '%'
 	</update>
 	<select id="PTData" resultType="com.kingsman.myapp.model.PrText">
 		SELECT * FROM B_PR_TEXT
 	</select>
 	<select id="NotiList" resultType="com.kingsman.myapp.model.User">
-	select b_NOTIFICATION from B_USER where b_ROLE=1
+		select b_NOTIFICATION from
+		B_USER where b_ROLE=1
 	</select>
-	<update id="Upnoti" parameterType="com.kingsman.myapp.model.User">
+	<update id="Upnoti"
+		parameterType="com.kingsman.myapp.model.User">
 		UPDATE B_USER
-        SET B_NOTIFICATION = B_NOTIFICATION + 1
-        WHERE B_ROLE = 1
+		SET B_NOTIFICATION = B_NOTIFICATION + 1
+		WHERE B_ROLE = 1
 	</update>
-	<update id="Resetnoti" parameterType="com.kingsman.myapp.model.User">
-    UPDATE B_USER
-    SET B_NOTIFICATION = #{B_NOTIFICATION}
-    WHERE B_ROLE = 1
-</update>
-<select id="Notiresult" resultMap="Noti1">
-        SELECT *
-        FROM b_towel_analysis
-        INNER JOIN b_user ON b_towel_analysis.T_ID = b_user.b_ID
-    </select>
-<resultMap id="Noti1" type="com.kingsman.myapp.model.TowelAnalysis">
-    <id property="T_INDEX" column="T_INDEX"/>
-    <result property="T_IMAGE" column="T_IMAGE"/>
-    <result property="T_COUNT" column="T_COUNT"/>
-    <result property="T_RESULT" column="T_RESULT"/>
-    <result property="T_ACCURACY" column="T_ACCURACY"/>
-    <result property="T_DATE" column="T_DATE"/>
-    
-    <!-- User 클래스에 대한 매핑 -->
-    <association property="user" javaType="com.kingsman.myapp.model.User">
-        <id property="B_ID" column="T_ID"/> <!-- T_ID가 b_user의 기본 키인 B_ID와 연결 -->
-        <result property="B_NAME" column="B_NAME"/>
-        <result property="B_DEPS" column="B_DEPS"/>
-        <result property="B_POSITION" column="B_POSITION"/>
-        <result property="B_EMPNO" column="B_EMPNO"/>
-        <result property="B_PHONE" column="B_PHONE"/>
-        <result property="B_DATE" column="B_DATE"/>
-        <result property="B_ROLE" column="B_ROLE"/>
-        <result property="B_NOTIFICATION" column="B_NOTIFICATION"/>
-    </association>
-</resultMap>
+	<update id="Resetnoti"
+		parameterType="com.kingsman.myapp.model.User">
+		UPDATE B_USER
+		SET B_NOTIFICATION = #{B_NOTIFICATION}
+		WHERE B_ROLE = 1
+	</update>
+	<select id="Notiresult" resultMap="Noti1">
+		SELECT *
+		FROM b_towel_analysis
+		INNER JOIN b_user ON b_towel_analysis.T_ID = b_user.b_ID
+	</select>
+	<resultMap id="Noti1"
+		type="com.kingsman.myapp.model.TowelAnalysis">
+		<id property="T_INDEX" column="T_INDEX" />
+		<result property="T_IMAGE" column="T_IMAGE" />
+		<result property="T_COUNT" column="T_COUNT" />
+		<result property="T_RESULT" column="T_RESULT" />
+		<result property="T_ACCURACY" column="T_ACCURACY" />
+		<result property="T_DATE" column="T_DATE" />
 
+		<!-- User 클래스에 대한 매핑 -->
+		<association property="user"
+			javaType="com.kingsman.myapp.model.User">
+			<id property="B_ID" column="T_ID" /> <!-- T_ID가 b_user의 기본 키인 B_ID와 연결 -->
+			<result property="B_NAME" column="B_NAME" />
+			<result property="B_DEPS" column="B_DEPS" />
+			<result property="B_POSITION" column="B_POSITION" />
+			<result property="B_EMPNO" column="B_EMPNO" />
+			<result property="B_PHONE" column="B_PHONE" />
+			<result property="B_DATE" column="B_DATE" />
+			<result property="B_ROLE" column="B_ROLE" />
+			<result property="B_NOTIFICATION" column="B_NOTIFICATION" />
+		</association>
+	</resultMap>
+
+
+	<select id="Notiresultfinal" resultMap="Noti1">
+		SELECT B_NAME,
+		B_POSITION, T_DATE, T_INDEX
+		FROM (
+		SELECT *
+		FROM b_towel_analysis
+		INNER
+		JOIN b_user ON b_towel_analysis.T_ID = b_user.b_ID
+		ORDER BY T_INDEX
+		DESC
+		)
+		WHERE ROWNUM &lt;= 4
+	</select>
 
 
 </mapper>
