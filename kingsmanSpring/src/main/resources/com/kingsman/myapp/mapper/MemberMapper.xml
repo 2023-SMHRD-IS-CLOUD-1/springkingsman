@@ -7,7 +7,7 @@
 		SELECT * FROM B_PRODUCT
 	</select>
 	<select id="searchUsers" parameterType="java.util.Map" resultType="com.kingsman.myapp.model.User">
-	    SELECT * FROM B_USER WHERE LOWER(${category}) LIKE '%' || LOWER(#{searchQuery}) || '%'
+	    SELECT * FROM B_USER WHERE LOWER(${category}) LIKE '%' || LOWER(#{searchQuery}) || '%' AND  B_ROLE  = 0
 	</select>
 	<insert id="UserSignUp" parameterType="com.kingsman.myapp.model.User">
 		INSERT INTO B_USER(B_ID, B_PW, B_NAME, B_DEPS, B_POSITION, B_EMPNO, B_PHONE)
