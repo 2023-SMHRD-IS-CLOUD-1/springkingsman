@@ -63,6 +63,10 @@ public class MemberService {
 		memberMapper.PrText(payload2);
 		
 	}
+	//한명훈
+	public List<PrText> PTData() {
+		return memberMapper.PTData();
+	}
 	
 	
 	

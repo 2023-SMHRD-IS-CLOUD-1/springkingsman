@@ -125,5 +125,12 @@ public class MemberController {
 		memberService.userModify(modifyData);
 		
 	}
+	//한명훈
+	@ResponseBody
+	@PostMapping("/PromotionalTextData")
+	@CrossOrigin(origins="http://localhost:3000")
+	public List<PrText> PTData() {
+		return memberService.PTData();
+	}
 	
 }

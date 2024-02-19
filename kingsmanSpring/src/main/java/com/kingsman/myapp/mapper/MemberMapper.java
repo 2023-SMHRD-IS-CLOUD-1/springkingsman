@@ -44,9 +44,9 @@ public interface MemberMapper {
 
 	public void userModify(Map<String, String> modifyData);
 
-
+	public List<PrText> PTData();
+	
 	public List<User> NotiList();
-
 
 	public void Upnoti(User data);
 
