@@ -141,5 +141,4 @@
 		WHERE S_INDEX = #{S_INDEX}
 	</update>
 
-
 </mapper>
