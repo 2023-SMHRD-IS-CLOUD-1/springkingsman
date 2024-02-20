@@ -99,6 +99,8 @@
 		<result property="T_RESULT" column="T_RESULT" />
 		<result property="T_ACCURACY" column="T_ACCURACY" />
 		<result property="T_DATE" column="T_DATE" />
+		<result property="T_TIME" column="T_TIME" />
+		
 
 		<!-- User 클래스에 대한 매핑 -->
 		<association property="user"
@@ -118,7 +120,7 @@
 
 	<select id="Notiresultfinal" resultMap="Noti1">
 		SELECT B_NAME,
-		B_POSITION, T_DATE, T_INDEX
+		B_POSITION, T_DATE, T_INDEX,T_TIME
 		FROM (
 		SELECT *
 		FROM b_towel_analysis
@@ -127,12 +129,11 @@
 		ORDER BY T_INDEX
 		DESC
 		)
-		WHERE ROWNUM &lt;= 4
 	</select>
 	<insert id="CountTowel"
 		parameterType="com.kingsman.myapp.model.TowelAnalysis">
-		INSERT INTO B_TOWEL_ANALYSIS(T_IMAGE,T_COUNT,T_RESULT,T_ACCURACY,T_ID)
-		VALUES(image,#{T_COUNT},#{T_RESULT},90,#{T_ID})
+		INSERT INTO B_TOWEL_ANALYSIS(T_IMAGE,T_COUNT,T_RESULT,T_ACCURACY,T_ID,T_TIME)
+		VALUES(#{T_IMAGE},#{T_COUNT},#{T_RESULT},88,#{T_ID},#{T_TIME})
 	</insert>
 	
 	<update id="changeCompleted" parameterType="com.kingsman.myapp.model.Schedule">
