@@ -22,7 +22,7 @@
 	</select>
 	<select id="dashboard2"
 		resultType="com.kingsman.myapp.model.User">
-		SELECT * FROM B_USER
+		SELECT * FROM B_USER WHERE B_ROLE = 0
 	</select>
 	<select id="dashboard3"
 		resultType="com.kingsman.myapp.model.Schedule">
