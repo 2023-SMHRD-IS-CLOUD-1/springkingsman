@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.kingsman.myapp.mapper.MemberMapper;
 import com.kingsman.myapp.model.PrText;
 import com.kingsman.myapp.model.Product;
+import com.kingsman.myapp.model.Schedule;
 import com.kingsman.myapp.model.TowelAnalysis;
 import com.kingsman.myapp.model.User;
 import com.kingsman.myapp.service.MemberService;
@@ -105,6 +106,13 @@ public class MemberController {
    @CrossOrigin(origins="http://localhost:3000")
    public List<User> dashboard2() {
       return memberService.dashboard2();
+   }
+   //한명훈
+   @ResponseBody
+   @PostMapping("/Dashboard3")
+   @CrossOrigin(origins="http://localhost:3000")
+   public List<Schedule> dashboard3() {
+	   return memberService.dashboard3();
    }
    
    //한명훈

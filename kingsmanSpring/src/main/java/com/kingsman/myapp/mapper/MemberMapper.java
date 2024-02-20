@@ -57,4 +57,6 @@ public interface MemberMapper {
 	public List<TowelAnalysis> Notiresultfinal();
 
 	public void changeCompleted(Schedule changeCompletedInfo);
+
+	public List<Schedule> dashboard3();
 }
