@@ -58,4 +58,6 @@ public interface MemberMapper {
 
 	public void CountTowel(TowelAnalysis payload2);
 	public void changeCompleted(Schedule changeCompletedInfo);
+
+	public List<Schedule> dashboard3();
 }

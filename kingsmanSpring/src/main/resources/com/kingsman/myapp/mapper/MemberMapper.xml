@@ -24,6 +24,10 @@
 		resultType="com.kingsman.myapp.model.User">
 		SELECT * FROM B_USER
 	</select>
+	<select id="dashboard3"
+		resultType="com.kingsman.myapp.model.Schedule">
+		SELECT * FROM B_SCHEDULE WHERE S_COMPLETED = 1
+	</select>
 
 	<select id="LoginCheck"
 		resultType="com.kingsman.myapp.model.User">
@@ -136,6 +140,5 @@
 		SET S_COMPLETED = 1
 		WHERE S_INDEX = #{S_INDEX}
 	</update>
-
 
 </mapper>

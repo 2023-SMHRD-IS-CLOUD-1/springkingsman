@@ -44,6 +44,10 @@ public class MemberService {
 	public List<User> dashboard2() {
 		return memberMapper.dashboard2();
 	}
+	//한명훈
+	public List<Schedule> dashboard3() {
+		return memberMapper.dashboard3();
+	}
 	
 	public User LoginCheck(User loginUserIdPw) {
 		User user = memberMapper.LoginCheck(loginUserIdPw);
@@ -67,6 +71,7 @@ public class MemberService {
 	public List<PrText> PTData() {
 		return memberMapper.PTData();
 	}
+
 	
 	
 	
