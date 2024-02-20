@@ -22,6 +22,10 @@ public class ScheduleService {
 		List<Schedule> scheduleList = memberMapper.ScheduleList();
 		return scheduleList;
 	}
+
+	public void changeCompleted(Schedule changeCompletedInfo) {
+		memberMapper.changeCompleted(changeCompletedInfo);
+	}
 	
 	
 

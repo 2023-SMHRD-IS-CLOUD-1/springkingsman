@@ -10,7 +10,6 @@
 	<select id="searchUsers" parameterType="java.util.Map" resultType="com.kingsman.myapp.model.User">
 	    SELECT * FROM B_USER WHERE LOWER(${category}) LIKE '%' || LOWER(#{searchQuery}) || '%' AND  B_ROLE  = 0
 	</select>
-
 	<insert id="UserSignUp"
 		parameterType="com.kingsman.myapp.model.User">
 		INSERT INTO B_USER(B_ID, B_PW, B_NAME, B_DEPS,
@@ -131,6 +130,12 @@
 		INSERT INTO B_TOWEL_ANALYSIS(T_IMAGE,T_COUNT,T_RESULT,T_ACCURACY,T_ID)
 		VALUES(image,#{T_COUNT},#{T_RESULT},90,#{T_ID})
 	</insert>
+	
+	<update id="changeCompleted" parameterType="com.kingsman.myapp.model.Schedule">
+		UPDATE B_SCHEDULE
+		SET S_COMPLETED = 1
+		WHERE S_INDEX = #{S_INDEX}
+	</update>
 
 
 </mapper>

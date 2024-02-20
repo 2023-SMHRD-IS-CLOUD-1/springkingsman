@@ -44,5 +44,15 @@ public class ScheduleController {
 		System.out.println(scheduleList);
 		return scheduleList;
 	}
+	
+	@ResponseBody
+	@RequestMapping("/changeCompleted")
+	@CrossOrigin(origins = "http://localhost:3000")
+	public void changeCompleted(@RequestBody Schedule changeCompletedInfo) {
+		System.out.println("바꿀스케줄"+changeCompletedInfo);
+		scheduleService.changeCompleted(changeCompletedInfo);
+	}
+	
+	
 
 }
