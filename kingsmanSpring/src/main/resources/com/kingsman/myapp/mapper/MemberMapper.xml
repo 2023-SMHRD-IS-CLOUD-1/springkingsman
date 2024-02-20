@@ -127,8 +127,8 @@
 	</select>
 	<insert id="CountTowel"
 		parameterType="com.kingsman.myapp.model.TowelAnalysis">
-		INSERT INTO B_TOWEL_ANALYSIS(T_IMAGE,T_COUNT,T_RESULT,T_ACCURACY,T_ID)
-		VALUES(image,#{T_COUNT},#{T_RESULT},90,#{T_ID})
+		INSERT INTO B_TOWEL_ANALYSIS(T_IMAGE,T_COUNT,T_RESULT,T_ACCURACY,T_ID,T_TIME)
+		VALUES(#{T_IMAGE},#{T_COUNT},#{T_RESULT},88,#{T_ID},#{T_TIME})
 	</insert>
 	
 	<update id="changeCompleted" parameterType="com.kingsman.myapp.model.Schedule">
