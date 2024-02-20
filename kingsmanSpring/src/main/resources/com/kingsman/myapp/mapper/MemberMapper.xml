@@ -129,6 +129,11 @@
 		)
 		WHERE ROWNUM &lt;= 4
 	</select>
+	<insert id="CountTowel"
+		parameterType="com.kingsman.myapp.model.TowelAnalysis">
+		INSERT INTO B_TOWEL_ANALYSIS(T_IMAGE,T_COUNT,T_RESULT,T_ACCURACY,T_ID)
+		VALUES(image,#{T_COUNT},#{T_RESULT},90,#{T_ID})
+	</insert>
 	
 	<update id="changeCompleted" parameterType="com.kingsman.myapp.model.Schedule">
 		UPDATE B_SCHEDULE
