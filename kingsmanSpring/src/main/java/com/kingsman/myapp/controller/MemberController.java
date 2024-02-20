@@ -92,45 +92,45 @@ public class MemberController {
    
 
 
-	//한명훈
-	@ResponseBody
-	@PostMapping("/Dashboard")
-	@CrossOrigin(origins="http://localhost:3000")
-	public List<TowelAnalysis> dashboard() {
-		return memberService.dashboard();
-	}
-	//한명훈
-	@ResponseBody
-	@PostMapping("/Dashboard2")
-	@CrossOrigin(origins="http://localhost:3000")
-	public List<User> dashboard2() {
-		return memberService.dashboard2();
-	}
-	
-	//한명훈
-	@ResponseBody
-	@PostMapping("/UserManagement2")
-	@CrossOrigin(origins = "http://localhost:3000")
-	public void userDelete(@RequestBody String deleteId) {
-		deleteId = deleteId.substring(1, deleteId.length() - 1);
-		System.out.println(deleteId);
-		memberService.userDelete(deleteId);
-		
-	}
-	//한명훈
-	@ResponseBody
-	@PostMapping("/UserModify")
-	@CrossOrigin(origins = "http://localhost:3000")
-	public void userModify(@RequestBody Map<String, String> modifyData) {
-		memberService.userModify(modifyData);
-		
-	}
-	//한명훈
-	@ResponseBody
-	@PostMapping("/PromotionalTextData")
-	@CrossOrigin(origins="http://localhost:3000")
-	public List<PrText> PTData() {
-		return memberService.PTData();
-	}
-	
+   //한명훈
+   @ResponseBody
+   @PostMapping("/Dashboard")
+   @CrossOrigin(origins="http://localhost:3000")
+   public List<TowelAnalysis> dashboard() {
+      return memberService.dashboard();
+   }
+   //한명훈
+   @ResponseBody
+   @PostMapping("/Dashboard2")
+   @CrossOrigin(origins="http://localhost:3000")
+   public List<User> dashboard2() {
+      return memberService.dashboard2();
+   }
+   
+   //한명훈
+   @ResponseBody
+   @PostMapping("/UserManagement2")
+   @CrossOrigin(origins = "http://localhost:3000")
+   public void userDelete(@RequestBody String deleteId) {
+      deleteId = deleteId.substring(1, deleteId.length() - 1);
+      System.out.println(deleteId);
+      memberService.userDelete(deleteId);
+      
+   }
+   //한명훈
+   @ResponseBody
+   @PostMapping("/UserModify")
+   @CrossOrigin(origins = "http://localhost:3000")
+   public void userModify(@RequestBody Map<String, String> modifyData) {
+      memberService.userModify(modifyData);
+      
+   }
+   //한명훈
+   @ResponseBody
+   @PostMapping("/PromotionalTextData")
+   @CrossOrigin(origins="http://localhost:3000")
+   public List<PrText> PTData() {
+      return memberService.PTData();
+   }
+   
 }
