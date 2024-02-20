@@ -99,6 +99,8 @@
 		<result property="T_RESULT" column="T_RESULT" />
 		<result property="T_ACCURACY" column="T_ACCURACY" />
 		<result property="T_DATE" column="T_DATE" />
+		<result property="T_TIME" column="T_TIME" />
+		
 
 		<!-- User 클래스에 대한 매핑 -->
 		<association property="user"
@@ -127,7 +129,6 @@
 		ORDER BY T_INDEX
 		DESC
 		)
-		WHERE ROWNUM &lt;= 4
 	</select>
 	<insert id="CountTowel"
 		parameterType="com.kingsman.myapp.model.TowelAnalysis">
