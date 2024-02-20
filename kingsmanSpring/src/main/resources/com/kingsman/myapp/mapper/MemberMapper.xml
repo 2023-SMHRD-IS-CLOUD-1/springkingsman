@@ -118,7 +118,7 @@
 
 	<select id="Notiresultfinal" resultMap="Noti1">
 		SELECT B_NAME,
-		B_POSITION, T_DATE, T_INDEX
+		B_POSITION, T_DATE, T_INDEX,T_TIME
 		FROM (
 		SELECT *
 		FROM b_towel_analysis
