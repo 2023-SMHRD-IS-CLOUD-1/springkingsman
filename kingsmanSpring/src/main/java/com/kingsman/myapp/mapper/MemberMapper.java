@@ -55,4 +55,6 @@ public interface MemberMapper {
 	public List<TowelAnalysis> Notiresult();
 
 	public List<TowelAnalysis> Notiresultfinal();
+
+	public void CountTowel(TowelAnalysis payload2);
 }
