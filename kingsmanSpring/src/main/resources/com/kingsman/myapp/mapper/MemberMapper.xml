@@ -18,7 +18,9 @@
 	</insert>
 	<select id="dashboard"
 		resultType="com.kingsman.myapp.model.TowelAnalysis">
-		SELECT * FROM B_TOWEL_ANALYSIS
+		 SELECT * FROM B_TOWEL_ANALYSIS
+  		WHERE T_ID IN (
+    	SELECT B_ID FROM B_USER WHERE B_ROLE = 0)
 	</select>
 	<select id="dashboard2"
 		resultType="com.kingsman.myapp.model.User">
@@ -146,6 +148,5 @@
    from b_towel_analysis
    where T_ID=#{T_ID}
 </select>
-
 
 </mapper>
