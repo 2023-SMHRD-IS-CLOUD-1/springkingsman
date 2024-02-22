@@ -57,5 +57,14 @@ public class NotificationController {
 
 		return list;
 	}
+	@ResponseBody
+	@PostMapping("/Notiresultme")
+	@CrossOrigin(origins = "http://localhost:3000")
+	public List<TowelAnalysis> Notiresultme(@RequestBody TowelAnalysis payload2) {
+		List<TowelAnalysis> list = notificationService.Notiresultme(payload2);
+		System.out.println("resultmeresultme" + payload2.toString());
+		return list;
+	}
+	
 
 }

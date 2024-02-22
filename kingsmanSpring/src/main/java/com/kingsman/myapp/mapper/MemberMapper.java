@@ -60,4 +60,6 @@ public interface MemberMapper {
 	public void changeCompleted(Schedule changeCompletedInfo);
 
 	public List<Schedule> dashboard3();
+
+	public List<TowelAnalysis> Notiresultme(TowelAnalysis payload2);
 }

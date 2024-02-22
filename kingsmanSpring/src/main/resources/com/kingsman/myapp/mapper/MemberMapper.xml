@@ -141,6 +141,11 @@
 		SET S_COMPLETED = 1
 		WHERE S_INDEX = #{S_INDEX}
 	</update>
+	<select id="Notiresultme" resultType="com.kingsman.myapp.model.TowelAnalysis">
+   select*
+   from b_towel_analysis
+   where T_ID=#{T_ID}
+</select>
 
 
 </mapper>

@@ -38,4 +38,11 @@ public class NotificationService {
 		return res;
 	}
 
+
+
+	public List<TowelAnalysis> Notiresultme(TowelAnalysis payload2) {
+		List<TowelAnalysis> res = memberMapper.Notiresultme(payload2);
+		return res;
+	}
+
 }
