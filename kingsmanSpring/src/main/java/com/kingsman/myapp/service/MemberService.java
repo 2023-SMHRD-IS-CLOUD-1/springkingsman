@@ -15,75 +15,75 @@ import com.kingsman.myapp.model.User;
 
 @Service
 public class MemberService {
-	
-	@Autowired
-	private MemberMapper memberMapper;
-	
-	public void MemberJoin(User mem) {
-		memberMapper.MemberJoin(mem);
-	}
+   
+   @Autowired
+   private MemberMapper memberMapper;
+   
+   public void MemberJoin(User mem) {
+      memberMapper.MemberJoin(mem);
+   }
 
-	public List<Product> ProductList() {
-		List<Product> res = memberMapper.ProductList();
-		return res;
-	}
-	public List<User> UserList() {
-		List<User> res = memberMapper.UserList();
-		return res;
-	}
+   public List<Product> ProductList() {
+      List<Product> res = memberMapper.ProductList();
+      return res;
+   }
+   public List<User> UserList() {
+      List<User> res = memberMapper.UserList();
+      return res;
+   }
 
-	public void UserSignUp(User signUpUser) {
-		memberMapper.UserSignUp(signUpUser);
-	}
-	//한명훈
-	public List<TowelAnalysis> dashboard() {
-		return memberMapper.dashboard();
-		
-	}
-	//한명훈
-	public List<User> dashboard2() {
-		return memberMapper.dashboard2();
-	}
-	//한명훈
-	public List<Schedule> dashboard3() {
-		return memberMapper.dashboard3();
-	}
-	
-	public User LoginCheck(User loginUserIdPw) {
-		User user = memberMapper.LoginCheck(loginUserIdPw);
-		return user;
-	}
-	//한명훈
-	public void userDelete(String deleteId) {
-		memberMapper.userDelete(deleteId);
-	}
+   public void UserSignUp(User signUpUser) {
+      memberMapper.UserSignUp(signUpUser);
+   }
+   //한명훈
+   public List<TowelAnalysis> dashboard() {
+      return memberMapper.dashboard();
+      
+   }
+   //한명훈
+   public List<User> dashboard2() {
+      return memberMapper.dashboard2();
+   }
+   //한명훈
+   public List<Schedule> dashboard3() {
+      return memberMapper.dashboard3();
+   }
+   
+   public User LoginCheck(User loginUserIdPw) {
+      User user = memberMapper.LoginCheck(loginUserIdPw);
+      return user;
+   }
+   //한명훈
+   public void userDelete(String deleteId) {
+      memberMapper.userDelete(deleteId);
+   }
 
-	//한명훈
-	public void userModify(Map<String, String> modifyData) {
-		memberMapper.userModify(modifyData);
-		
-	}
-	public void PrText(PrText payload2) {
-		memberMapper.PrText(payload2);
-		
-	}
-	//한명훈
-	public List<PrText> PTData() {
-		return memberMapper.PTData();
-	}
+   //한명훈
+   public void userModify(Map<String, String> modifyData) {
+      memberMapper.userModify(modifyData);
+      
+   }
+   public void PrText(PrText payload2) {
+      memberMapper.PrText(payload2);
+      
+   }
+   //한명훈
+   public List<PrText> PTData() {
+      return memberMapper.PTData();
+   }
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
 }
